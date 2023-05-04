@@ -1,0 +1,49 @@
+{% comment %}
+  First, Thanks for choosing Adastra ✦ for your Shopify theme project.
+  Adastra is pretty straight forward, if you know basic Shopify theme dev
+  you wont need to learn nothing else to work or adopte Adastra :)
+
+  Let take for example this section, we have:
+  - Some section settings like a heading
+  - A card snippet and blocks each block is mapped to a card
+  - And a product form using <product-form> custom element
+
+  The <product-form> element wraps the liquid form, to enhance it
+  with Ajax, if you remove the element the Javascript wont be used,
+  and the form will still submit to Shopify cart!
+
+{% endcomment %}
+
+{% assign first_product = collections.all.products.first %}
+
+<section class="mx-auto max-w-sm p-4 my-12 md:my-24 md:py-6">
+  <div class="flex flex-col rounded-xl border border-primary/10 bg-white shadow-sm">
+    {% render 'media' with first_product.featured_media %}
+    <div class="p-4 flex flex-col gap-y-2">
+      <h2 class="text-xl font-bold tracking-tight">{{ first_product.title }}</h2>
+      {% render 'price', product: first_product %}
+      {% if cart.empty? %}
+        <form action="{{ routes.cart_add_url }}" method="post">
+          <input type="hidden" name="id" value="{{ first_product.selected_or_first_available_variant.id }}" hidden>
+          <input type="hidden" name="return_to" value="{{ routes.root_url }}" hidden>
+          <input type="submit" value="{{ 'products.product.add_to_cart' | t }}">
+        </form>
+      {% else %}
+        <form action="{{ routes.cart_url }}" method="post">
+          <input type="submit" name="checkout" value="Checkout">
+        </form>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hello World",
+  "presets": [
+    {
+      "name": "Hello World"
+    }
+  ]
+}
+{% endschema %}
