@@ -1,21 +1,4 @@
-# Adastra Example With Tailwind ✨
-
-```shell
-npm create adastra@latest -- --template blanklob/adastra/examples/with-tailwind
-```
-
-Using Yarn/PNPM
-
-```bash
-yarn create adastra@latest --template blanklob/adastra/examples/with-tailwind
-# pnpm create adastra@latest --template blanklob/adastra/examples/with-tailwind
-```
-
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=603560480)
-
-> 🧑‍🚀 **Hey astronaut?** Have fun building Shopify themes with Adastra!
-
-![with-tailwind](https://raw.githubusercontent.com/blanklob/adastra/main/.github/assets/basics-template-banner.png)
+# Easy Cart to Checkout Section ✨
 
 ## Launch development server
 
